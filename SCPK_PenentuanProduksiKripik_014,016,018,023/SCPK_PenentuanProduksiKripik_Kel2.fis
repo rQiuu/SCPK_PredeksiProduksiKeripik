@@ -1,0 +1,50 @@
+[System]
+Name='SCPK_PenentuanProduksiKripik_Kel2'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=8
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='permintaan'
+Range=[0 400]
+NumMFs=2
+MF1='rendah':'trapmf',[0 0 75 350]
+MF2='tinggi':'trapmf',[75 350 400 400]
+
+[Input2]
+Name='penjualan'
+Range=[0 400]
+NumMFs=2
+MF1='rendah':'trapmf',[0 0 60 300]
+MF2='tinggi':'trapmf',[60 300 400 400]
+
+[Input3]
+Name='persediaan'
+Range=[0 400]
+NumMFs=2
+MF1='rendah':'trapmf',[0 0 20 130]
+MF2='tinggi':'trapmf',[20 130 400 400]
+
+[Output1]
+Name='produksi'
+Range=[0 500]
+NumMFs=2
+MF1='sedikit':'trapmf',[0 0 100 400]
+MF2='banyak':'trapmf',[100 400 500 500]
+
+[Rules]
+1 1 1, 1 (1) : 1
+1 1 2, 1 (1) : 1
+1 2 1, 2 (1) : 1
+1 2 2, 1 (1) : 1
+2 1 1, 2 (1) : 1
+2 1 2, 1 (1) : 1
+2 2 1, 2 (1) : 1
+2 2 2, 2 (1) : 1
